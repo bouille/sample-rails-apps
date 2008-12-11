@@ -83,8 +83,10 @@ class YamlRecord
   # Defines the accessor methods for the data.
   def define_getters_and_setters
     self.class.attributes.each do |attribute|
-      define_method(attribute) { @params[attribute] }
-      define_method("#{attribute}=") {|value| @params[attribute] = value }
+      self.class.class_eval {
+        define_method(attribute) { @params[attribute] }
+        define_method("#{attribute}=") {|value| @params[attribute] = value }
+      }
     end
   end
   
