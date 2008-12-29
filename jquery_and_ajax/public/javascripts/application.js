@@ -21,7 +21,8 @@ $.ajaxSetup({
 	}
 });
 
-// The default jQuery#load function does not seem to honor the beforeSend in the ajaxSetup above.
+// Similar to the built in 'load' function in jQuery, extended so that it adds the .js mime to
+// the url.
 $.fn.railsLoad = function(location){
   var self = this;
   $.ajax({
