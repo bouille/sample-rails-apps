@@ -8,3 +8,4 @@ Using jQuery instead of prototype in a Rails app is dead easy. This app has an e
 
 * public/javascripts/application.js
 * app/views/layouts/application.html.erb
+* app/views/comments/*.rjs
