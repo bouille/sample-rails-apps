@@ -111,3 +111,15 @@ a:hover{
 .pagination .current{
   color:red;
 }
+
+/* Loading indicator */
+
+#loading_indicator{
+	position:absolute;
+	top:0px;
+	right:0px;
+	background:#b00;
+	color:#fff;
+	padding:2px 8px;
+	display:none;
+}

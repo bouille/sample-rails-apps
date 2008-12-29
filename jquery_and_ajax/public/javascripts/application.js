@@ -9,13 +9,25 @@ var mimeifyUrl = function(url){
 	}
 }
 
+$.ajaxSetup({
+	complete: function(response, status){
+		$('#loading_indicator').hide()
+	},
+	error: function(){
+		alert('An error occured!') // replace this with your own awesome error handler
+	},
+	beforeSend: function(request, params){
+		$('#loading_indicator').show()
+	}
+});
+
 // The default jQuery#load function does not seem to honor the beforeSend in the ajaxSetup above.
 $.fn.railsLoad = function(location){
   var self = this;
   $.ajax({
     url: mimeifyUrl(location),
-    complete: function(response, status){
-      $(self).html(response.responseText);
+    success: function(response, status){
+      $(self).html(response);
     }
   });
 }
