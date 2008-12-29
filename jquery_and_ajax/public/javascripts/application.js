@@ -1,4 +1,4 @@
-// Adds the .js mime to URLs, so that Rails fires the correct respond_to respons.
+// Adds the .js mime to URLs, so that Rails fires the correct respond_to response.
 var mimeifyUrl = function(url){
 	if (/\.js/.test(url)){
 		return url
