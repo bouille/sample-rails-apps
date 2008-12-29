@@ -2,7 +2,7 @@
 
 Run rake app:install to bootstrap some sample data into the app.
 
-Shows how to do unobtrusive javascript with jQuery. jQuery makes it easy to write unobtrusive javascript, which isn't the case with Rails' built-in javascript helpers (link_to_remote etc). Unobtrusive javascript is good, as it makes your webapps work for people that doesn't have javascript. It's also a nice way to clean up your javascripts, making it more maintainable.
+Using jQuery instead of prototype in a Rails app is dead easy. This app has an example of how to make will_paginate AJAX-ified, and how to submit a form with AJAX. It's all being done unobtrusively, so the app still works flawlessly if javascript is disabled or unavailable in the browser.
 
 # Files of interest
 
