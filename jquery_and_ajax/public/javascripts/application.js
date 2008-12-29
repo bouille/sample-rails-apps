@@ -1,17 +1,19 @@
-/*
- This app is consequently using $ to refer to jQuery. More info here: http://docs.jquery.com/Using_jQuery_with_Other_Libraries
-*/
-
-// Hooking jQuery up with Rails' respond_to (http://ozmm.org/posts/jquery_and_respond_to.html)
-$.ajaxSetup({
-  beforeSend: function(xhr){ xhr.setRequestHeader('Accept', 'text/javascript') }
-});
+// Adds the .js mime to URLs, so that Rails fires the correct respond_to respons.
+var mimeifyUrl = function(url){
+	if (/\.js/.test(url)){
+		return url
+	} else if (/\?/.test(url)) {
+		return url.replace('?', '.js?')
+	} else {
+		return url + '.js'
+	}
+}
 
 // The default jQuery#load function does not seem to honor the beforeSend in the ajaxSetup above.
 $.fn.railsLoad = function(location){
   var self = this;
   $.ajax({
-    url: location,
+    url: mimeifyUrl(location),
     complete: function(response, status){
       $(self).html(response.responseText);
     }
